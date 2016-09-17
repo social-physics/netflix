@@ -1,9 +1,17 @@
 from django.db import models
 
-
 class Movie(models.Model):
-    movie_id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=200, default='')
 
-    def __unicode__(self):
-        return self.title
+class Rating(models.Model):
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+    movie_id = models.IntegerField()
+    user_id = models.IntegerField()
+    rating = models.IntegerField(choices=RATING_CHOICES)
