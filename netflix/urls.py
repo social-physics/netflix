@@ -17,5 +17,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^movies/', include('movies.urls', namespace="movies")),
     url(r'^admin/', include(admin.site.urls)),
 ]
